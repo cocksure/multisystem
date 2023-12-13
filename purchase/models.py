@@ -30,7 +30,7 @@ class PurchaseProduct(models.Model):
     assigned_at = models.DateTimeField(editable=True, null=True, blank=True, )
     assigned_to = models.ForeignKey('hr.Employee', on_delete=models.SET_NULL, null=True, blank=True,
                                     related_name='executor_purchaseproducts')
-    status = models.CharField(choices=PurchaseStatus.choices, default=PurchaseStatus.NEW)
+    status = models.CharField(choices=PurchaseStatus.choices, max_length=50, default=PurchaseStatus.NEW)
 
     def purchase_status_validate(self):
         current_status = self.status

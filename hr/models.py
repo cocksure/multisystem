@@ -45,7 +45,7 @@ class Employee(BaseModel):
     address = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=15)
     email = models.EmailField(unique=True)
-    gender = models.CharField(choices=GENDER_CHOICES)
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=15)
     date_of_birth = models.DateField()
     passport_number_series = models.CharField(max_length=10, unique=True)
     passport_issued_by = models.CharField(max_length=255)

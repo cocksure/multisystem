@@ -23,7 +23,7 @@ class Incoming(BaseModel):
     outgoing = models.ForeignKey(Outgoing, on_delete=models.PROTECT, null=True, blank=True)
     purchase = models.ForeignKey('purchase.Purchase', on_delete=models.SET_NULL, null=True, blank=True)
     note = models.CharField(max_length=250, null=True, blank=True)
-    incoming_type = models.CharField(choices=INCOMING_TYPE, null=True, blank=True)
+    incoming_type = models.CharField(choices=INCOMING_TYPE, max_length=50, null=True, blank=True)
 
     def save(self, *args, **kwargs):
         process_incoming(self)
